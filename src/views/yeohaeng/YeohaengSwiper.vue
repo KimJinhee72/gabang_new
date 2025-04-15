@@ -1,0 +1,152 @@
+<template>
+  <swiper
+    :scrollbar="{
+      hide: true,
+    }"
+    :slidesPerView="1"
+    :spaceBetween="10"
+    :centeredSlides="true"
+    :autoplay="{
+      delay: 2500,
+      disableOnInteraction: false,
+    }"
+    :pagination="{
+      clickable: true,
+    }"
+    :navigation="true"
+    :modules="modules"
+    @autoplayTimeLeft="onAutoplayTimeLeft"
+    class="mySwiper"
+  >
+    <swiper-slide
+      ><h4>군위시장투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_02.jpg"
+          alt="군위전통시장투어" /></a
+    ></swiper-slide>
+    <swiper-slide
+      ><h4>현풍투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_03.jpg"
+          alt="현풍전통시장투어" /></a
+    ></swiper-slide>
+    <swiper-slide
+      ><h4>사시사철투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_04.jpg"
+          alt="사시사철투어" /></a
+    ></swiper-slide>
+    <swiper-slide
+      ><h4>낙동강투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_05.jpg"
+          alt="낙동강투어" /></a
+    ></swiper-slide>
+    <swiper-slide
+      ><h4>군위군돋보기투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_06.jpg"
+          alt="군위군돋보기투어" /></a
+    ></swiper-slide>
+    <swiper-slide
+      ><h4>팔공산투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_07.jpg"
+          alt="팔공산투어" /></a
+    ></swiper-slide>
+    <swiper-slide
+      ><h4>야경투어</h4><a href="#"
+        ><img
+          src="/public/images/geen/1/KakaoTalk_20250410_194237551_01.jpg"
+          alt="야경투어" /></a
+    ></swiper-slide>
+    <template #container-end>
+      <div class="autoplay-progress">
+        <svg viewBox="0 0 48 48" ref="progressCircle">
+          <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span ref="progressContent"></span>
+      </div>
+    </template>
+  </swiper>
+</template>
+
+<script>
+import { ref } from "vue";
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+import 'swiper/css/scrollbar';
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay, Pagination, Navigation, Scrollbar } from "swiper/modules";
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const progressCircle = ref(null);
+    const progressContent = ref(null);
+    const onAutoplayTimeLeft = (s, time, progress) => {
+      progressCircle.value.style.setProperty("--progress", 1 - progress);
+      progressContent.value.textContent = `${Math.ceil(time / 1000)}s`;
+    };
+    return {
+      onAutoplayTimeLeft,
+      progressCircle,
+      progressContent,
+      modules: [Autoplay, Pagination, Navigation, Scrollbar],
+    };
+  },
+};
+</script>
+<style lang="scss" scoped>
+h4{
+  margin: 20px;
+}
+.swiper-slide {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    width: 70%;
+    height: 100%;
+    @media (max-width: 630px) {
+      width: 100%;
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; // 또는 contain
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.autoplay-progress {
+  display: none;
+}
+::v-deep(.swiper-pagination) {
+  display: none !important ;
+}
+::v-deep(.swiper-slide>img){
+ margin: 0 !important;
+}
+::v-deep(.swiper-button-prev){
+  color: #ee2b2b;
+  // width: calc(var(--swiper-navigation-size) / 34 * 130);
+}
+::v-deep(.swiper-button-next){
+  color: #ee2b2b;
+  // width: calc(var(--swiper-navigation-size) / 34 * 190);
+  // height: var(--swiper-navigation-size);
+}
+</style>
