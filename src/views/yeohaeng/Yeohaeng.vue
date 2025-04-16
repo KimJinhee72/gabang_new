@@ -79,7 +79,6 @@ onBeforeUnmount(() => {
 .yh_themaBus{
 
   margin: 0 auto;
-  padding: 30px;
   margin-bottom: 50px;
 }
 // 제목
@@ -94,7 +93,7 @@ onBeforeUnmount(() => {
   margin-top: 100px;
   .bb_titleLine {
     width: 3px;
-    height: 35px;
+    height: 25px;
     background-color: $main-color;
   }
   .title_txt1 h1 {
@@ -176,13 +175,9 @@ onBeforeUnmount(() => {
 
 .yh_content-box {
   width: 100%;
-  max-width: 1250px;
-  margin: 0 auto;
-  padding: 100px;
+  max-width: 700px;
+  margin: 40px auto 0;
   border-radius: 12px;
-  @media (max-width: 1000px) {
-    padding: 20px 0 0; // 이 부분이 필요한 거예요
-  }
 }
 
 .yh_content-box img {
@@ -201,13 +196,5 @@ onBeforeUnmount(() => {
 .fade-leave-to {
   opacity: 0;
 }
-::v-deep(.swiper-scrollbar-drag){
-  background-color: #ee2b2b !important;
-}
-::v-deep(.swiper-button-prev:after, .swiper-button-next:after ){
-  font-size: 30px !important;
-}
-::v-deep(.swiper-button-next:after ){
-  font-size: 30px !important;
-}
+
 </style>

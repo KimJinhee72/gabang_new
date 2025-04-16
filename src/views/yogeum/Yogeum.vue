@@ -129,7 +129,7 @@ onUnmounted(() => {
   margin-top: 100px;
   .bb_titleLine {
     width: 3px;
-    height: 35px;
+    height: 25px;
     background-color: $main-color;
   }
   .title_txt1 h1 {
