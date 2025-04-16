@@ -107,16 +107,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 h4{
-  margin: 20px;
+  margin: 10px 0 ;
 }
 .swiper-slide {
-  width: 100%;
+  width: 100% !important;
   height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   a {
-    width: 70%;
+    width: 100%;
+    max-width: 700px;
     height: 100%;
     @media (max-width: 630px) {
       width: 100%;
@@ -124,6 +125,7 @@ h4{
   }
   img {
     width: 100%;
+
     height: auto;
     object-fit: cover; // 또는 contain
     border-radius: 10px;
@@ -142,11 +144,20 @@ h4{
 }
 ::v-deep(.swiper-button-prev){
   color: #ee2b2b;
-  // width: calc(var(--swiper-navigation-size) / 34 * 130);
+  left: var(--swiper-navigation-sides-offset, 230px);
+}
+::v-deep(.swiper-button-prev::after){
+  font-size: 25px;
 }
 ::v-deep(.swiper-button-next){
   color: #ee2b2b;
-  // width: calc(var(--swiper-navigation-size) / 34 * 190);
-  // height: var(--swiper-navigation-size);
+  right: var(--swiper-navigation-sides-offset, 280px);
 }
+::v-deep(.swiper-button-next::after){
+  font-size: 25px;
+}
+::v-deep(.swiper-scrollbar-drag){
+  background-color: #ee2b2b !important;
+}
+
 </style>

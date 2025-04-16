@@ -3,8 +3,13 @@
     <div class="main-slide-list2">
       <div class="main-slide-list2-title">
         <i class="ico_bright"></i>
-        <div class="festival-title">
-          대구 {{ activeTab === "CDF018.001" ? "봄" : "가을" }} 축제
+        <!-- 순환버스 제목 -->
+        <div class="bb_title1">
+          <div class="festival-title"></div>
+          <div class="bb_titleLine"></div>
+          <div class="title_txt1">
+            <h1>대구 {{ activeTab === "CDF018.001" ? "봄" : "가을" }} 축제</h1>
+          </div>
         </div>
       </div>
       <!-- 봄/가을 탭 -->
@@ -15,6 +20,7 @@
           >봄</a
         >
         <a
+          class="festivalTab"
           :class="{ active: activeTab === 'CDF018.002' }"
           @click="changeTab('CDF018.002')"
           >가을</a
@@ -38,11 +44,13 @@
                     id="합치기_22"
                     data-name="합치기 22"
                     d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
-                    fill="#ee2b2b"></path>
+                    :fill="
+                      activeTab === 'CDF018.001' ? '#ee2b2b' : 'yellow'
+                    "></path>
                 </svg>
                 <div class="slide-info-wrap">
                   <div class="slide-info-title">
-                    {{ festival.title }}
+                    {{ festival.title }} <br />{{ festival.title1 }}
                     <p></p>
                     <a
                       v-if="festival.href"
@@ -118,42 +126,46 @@ let swiperInstance = null;
 const festivalData = {
   "CDF018.001": [
     {
-      title: "파워풀 대구페스티벌",
+      title: "파워풀",
+      title1: "대구페스티벌",
       date: "2025.5.10.(토) ~ 5.11.(일)",
       location: "국채보상로",
       image: "/public/images/geen/power_poster.jpg",
       href: "https://fantasiafesta.or.kr/festival.do?searchFESTV_MONTH_DCD=CDF018.001&searchFESTV_ID=FESTV_000070",
     },
     {
-      title: "대구약령시한방문화축제",
+      title: "대구약령시",
+      title1: "한방문화축제",
       date: "2025.5.8.(목) ~ 5.11.(일)",
       location: "약령시 일원",
       image: "/public/images/geen/yak.jpg",
       href: "https://fantasiafesta.or.kr/festival.do?searchFESTV_MONTH_DCD=CDF018.001&searchFESTV_ID=FESTV_000130",
     },
     {
-      title: "대구생활문화제",
+      title: "대구 생활문화제",
       date: "2025.5.10.(토) ~ 5.11.(일)",
       location: "국채보상운동기념공원",
       image: "/public/images/geen/kukchae.jpg",
       href: "https://fantasiafesta.or.kr/festival.do?searchFESTV_MONTH_DCD=CDF018.001&searchFESTV_ID=FESTV_000040",
     },
     {
-      title: "대구 TOP밴드 경연대회",
+      title: "대구TOP밴드",
+      title1: " 경연대회",
       date: "2025.5.10.(토)",
       location: "코오롱야외음악당",
       image: "/public/images/geen/music.jpg",
       href: "https://fantasiafesta.or.kr/festival.do?searchFESTV_MONTH_DCD=CDF018.001&searchFESTV_ID=FESTV_000041",
     },
     {
-      title: "동성로청년버스킹",
+      title: "동성로",
+      title1: "청년버스킹",
       date: "2025.5.15.(목) ~ 5.17.(토)",
       location: "동성로 일원",
       image: "/public/images/geen/busking.jpeg",
       href: "https://fantasiafesta.or.kr/festival.do?searchFESTV_MONTH_DCD=CDF018.001&searchFESTV_ID=FESTV_000065",
     },
     {
-      title: "동성로청년버스킹",
+      title: "동성로 축제",
       date: "2025.5.9.(금) ~ 5.11.(일)",
       location: "동성로 일대",
       image: "/public/images/geen/dong.jpg",
@@ -227,6 +239,7 @@ const festivalData = {
   ],
 };
 
+
 // 탭 변경
 const changeTab = (tabId) => {
   activeTab.value = tabId;
@@ -291,11 +304,24 @@ onMounted(() => {
 @use "/src/assets/Variables" as *;
 @use "/src/assets/Variables" as *;
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
-/*font*/
-* {
-  font-family: "Pretendard";
-}
 
+// 제목
+.bb_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  .bb_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
+}
 header.main {
   position: fixed;
 }
@@ -525,18 +551,10 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   margin-top: $margin-L;
 }
 .main-slide-list2-title .festival-title {
-  margin-top: 20px;
-  font-size: 36px;
+  font-size: 25px;
   font-family: "RecipekoreaM";
 }
-.ico_bright {
-  background-image: url(../../images/user/main/ico-planet.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
-  width: 40px;
-  height: 40px;
-}
+// 탭
 .festival-month {
   display: flex;
   justify-content: center;
@@ -558,6 +576,10 @@ header.main.fix .hd-gnb .hd-menu > li:after {
 .festival-month a:first-child {
   margin-right: 15px;
 }
+.festival-month a:last-child.active {
+  background: yellow !important;
+  color: #ee2b2b;
+}
 .festival-month .active {
   background: #e32c39;
   color: #fff;
@@ -568,6 +590,7 @@ header.main.fix .hd-gnb .hd-menu > li:after {
 /* main-banner slide */
 .main-slide-list2 {
   overflow: hidden;
+  margin: 0 auto;
 }
 .main-slide-list2 .swiper {
   position: relative;
@@ -600,7 +623,6 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   max-width: 90px;
   align-items: center;
   font-size: 20px;
-  margin: 0 20px;
   letter-spacing: 5px;
 }
 .swiper-btn-wrap .swiper-pagination2 span {
@@ -622,7 +644,7 @@ header.main.fix .hd-gnb .hd-menu > li:after {
 #main-swiper .slide-wrap {
   width: 100%;
   height: 560px;
-  max-width: 1070px;
+  max-width: 700px;
   display: flex;
 }
 .slide-wrap .left {
@@ -675,7 +697,7 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   position: relative;
 }
 .slide-wrap .left .slide-info-title {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
 }
 .slide-wrap .left .slide-info-title p {
@@ -1072,12 +1094,12 @@ header.main.fix .hd-gnb .hd-menu > li:after {
 }
 
 .festi-more {
-  width: 125px;
-  height: 50px;
+  width: 115px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   background-color: #000000;
   color: #fff;
@@ -1542,6 +1564,7 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   .slide-wrap .right .right-thumb {
     width: 274px;
     height: 380px;
+    background-size: cover;
   }
   .yt-player {
     width: 274px;
@@ -1567,10 +1590,10 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   }
   .slide-wrap .left {
     width: 100%;
-    height: auto;
+    height: 300px;
   }
   .slide-wrap .left .left-bg {
-    height: 680px;
+    height: 700px;
     max-height: 680px;
     border-radius: 20px;
   }
@@ -1610,7 +1633,7 @@ header.main.fix .hd-gnb .hd-menu > li:after {
     margin: 0 auto;
     height: 100%;
     min-height: 380px;
-    background-size: contain;
+    background-size: cover;
     border-top-right-radius: 0;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -1732,9 +1755,31 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   background-color: #ee2b2b;
   color: white;
 }
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: var(--swiper-navigation-sides-offset, 100px);
+  @media (max-width: 980px) {
+    left: var(--swiper-navigation-sides-offset, 10px);
+  }
+  @media (max-width: 670px) {
+    display: none;
+  }
+}
 .swiper-button-next,
-.swiper-button-prev {
+.swiper-rtl .swiper-button-prev {
+  right: var(--swiper-navigation-sides-offset, 100px);
+  @media (max-width: 980px) {
+    right: var(--swiper-navigation-sides-offset, 10px);
+  }
+  @media (max-width: 670px) {
+    display: none;
+  }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
   color: #ee2b2b;
+  font-size: 25px;
 }
 
 .swiper-pagination-bullet-active {
@@ -1743,5 +1788,13 @@ header.main.fix .hd-gnb .hd-menu > li:after {
 
 .right-thumb {
   position: relative;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  img{
+
+  }
 }
 </style>

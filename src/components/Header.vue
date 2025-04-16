@@ -8,7 +8,10 @@
           /></router-link>
           <nav v-if="!isMobile" class="hd_menu">
             <ul>
-              <li v-for="(item, index) in menuItems" :key="index" @mouseenter="openedMenu = index">
+              <li
+                v-for="(item, index) in menuItems"
+                :key="index"
+                @mouseenter="openedMenu = index">
                 <router-link
                   v-if="!item.sub"
                   :to="item.to"
@@ -65,14 +68,28 @@
             </div>
           </nav>
         </div>
-        <nav class="hd_menu1" :class="{ show: shortMenu }" v-show="shortMenu">
+        <div class="hd_menu1" :class="{ show: shortMenu }" v-show="shortMenu">
           <span @click.prevent="shortMenu = false" role="button">X</span>
-          <router-link to="/bangbeob">방 법 도</router-link>
-          <router-link to="/yeyak">예 약 도</router-link>
-          <router-link to="/yogeum">요 금 도</router-link>
-          <router-link to="/sotong">소 통 도</router-link>
-          <router-link to="/yeohaeng">여 행 도</router-link>
-        </nav>
+          <ul>
+            <li v-for="(item, index) in menuItems" :key="index">
+              <router-link v-if="!item.sub" :to="item.to"
+                ><span>{{ item.label }}</span></router-link
+              >
+              <a v-else href="#">
+                {{ item.label }}
+              </a>
+              <ul
+                v-if="item.sub"
+                @mouseleave="closeSubMenu"
+                class="subMenu"
+                :class="{ show: openedMenu === index }">
+                <li v-for="(sub, idx) in item.sub" :key="idx">
+                  <router-link :to="sub.to">{{ sub.label }}</router-link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </header>
@@ -100,8 +117,8 @@ const menuItems = [
   {
     label: "방법도",
     sub: [
-      { label: "짐 운송", to: "/bangbeob" },
-      { label: "짐 보관", to: "/bangbeob1" },
+      { label: "짐 보관", to: "/bangbeob" },
+      { label: "짐 운송", to: "/bangbeob1" },
     ],
   },
   {
@@ -131,7 +148,7 @@ const menuItems = [
   },
 ];
 const closeSubMenu = () => {
-  console.log('mouseleave 발생!');
+  console.log("mouseleave 발생!");
   openedMenu.value = null;
 };
 
@@ -180,7 +197,7 @@ onUnmounted(() => {
   width: 100%;
   height: 75px;
   padding-top: 13px;
-  z-index: 1;
+  z-index: 999999;
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -200,7 +217,7 @@ header .inner {
 }
 // 로고
 .hd_logo {
-  width: 140px;
+  width: 120px;
   img {
     width: 120px;
   }
@@ -220,7 +237,7 @@ header .inner {
   ul {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100%;   
     li {
       position: relative;
       flex: 1;
@@ -248,15 +265,28 @@ header .inner {
       .subMenu {
         width: 100%;
         height: 100px;
+        line-height: 50px;
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 57px;
+        top: 56px;
         left: 0;
         background-color: #fff;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 10;
         padding: 10px 0;
+        li{
+          height: 25px;
+          a{
+            display: flex;              // 플렉스 박스로 설정
+      align-items: center;        // 수직 가운데 정렬
+      justify-content: center;
+            width: 100%px;
+            height: 40px;
+            padding: 0 ;
+            padding-top: -5px;
+          }
+        }
       }
       .subMenu.show {
         display: flex;
@@ -268,55 +298,68 @@ header .inner {
   pointer-events: none;
   position: fixed;
   top: 75px;
-  right: 200px;
+  left: 0;
   width: 230px;
-  height: calc(60px * 6 + 20px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: 20px;
   border-radius: 10px;
   transition: all 0.3s ease;
-  opacity: 0;
-  background-color: rgba($main-color, 0.8);
-}
-.hd_menu1.show {
-  height: 380px;
-  text-align: right;
   color: #fff;
-  cursor: pointer;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.hd_menu1 span {
-  height: 50px;
-  text-align: right;
-  color: #fff;
-  cursor: pointer;
-}
-.hd_menu1 > a {
-  width: 95%;
-  height: 60px;
-  padding: 18px 10px;
-  color: #fff;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 2.5px solid #0066b333;
-}
-.hd_menu1 a:hover {
-  border: 2.5px solid $sub-color;
-  font-weight: bold;
-  border-radius: 10px;
-}
-.hd_menu1 a:last-child {
-  margin-bottom: 20px;
+  z-index: 9;
+  background-color: #fff;
+  background-color: rgba($main-color, 0.9);
+  &.show {
+    text-align: left;
+    color: #fff;
+    cursor: pointer;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 9;
+  }
+  
+  span {
+    height: 30px;
+    text-align: right;
+    color: #fff;
+    cursor: pointer;
+  }
+  li {
+    width: 100%;
+    a {
+      display: block;
+      width: 100% !important;
+      padding: 18px 10px;
+      color: #fff;
+      text-align: center;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 2.5px solid #0066b333;
+    }
+    a:hover {
+      border: 2.5px solid $sub-color;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+  }
+  .subMenu {
+    li {
+      a {
+        height: 30px;
+        text-align: right;
+        font-size: 15px;
+        padding: 5px;
+      }
+    }
+  }
 }
 // delivery/login icon
 .hd_extra {
-  width: 17%;
+  width: 11%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 5px;
   color: $main-color;
@@ -370,10 +413,15 @@ header .inner {
 }
 // 반응형후 delivery/login icon
 .hd_extra1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100% !important;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 9;
   img {
     font-weight: 600;
   }

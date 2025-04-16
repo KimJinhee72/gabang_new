@@ -40,25 +40,21 @@
         </div>
       </div>
     </div>
-    <!-- 고정 버튼들 -->
-    <div class="fixed-buttons">
-      <div class="goTop">
-      <button class="inquiry-btn goTopbtn" @click="scrollToTop">
-        <i class="fas fa-arrow-up"></i>
-        <span>위로가기</span>
-      </button>
-      </div>
-      <div class="contactUs">
-      <button class="inquiry-btn" @click="openInquiry">
-        <i class="fas fa-comment"></i>
-        <span>간편문의하기</span>
-      </button>
-      <button class="inquiry-btn" @click="openReservation">
-        <i class="fas fa-calendar-check"></i>
-        <span>예약하기</span>
-      </button>
-      </div>
-    </div>
+  </div>
+  <!-- 고정 버튼들 -->
+  <div class="fixed-buttons">
+    <button class="inquiry-btn goTopbtn" @click="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+      <span>위로가기</span>
+    </button>
+    <button class="inquiry-btn" @click="openInquiry">
+      <i class="fas fa-comment"></i>
+      <span>간편문의하기</span>
+    </button>
+    <button class="inquiry-btn" @click="openReservation">
+      <i class="fas fa-calendar-check"></i>
+      <span>예약하기</span>
+    </button>
   </div>
 </template>
 
@@ -159,19 +155,22 @@ const openReservation = () => {
     font-size: 13px;
   }
 }
-
+// 고정버튼들
 .fixed-buttons {
-  width: 100%;
-  max-width: 1300px;
   position: fixed;
-  right: 20px;
+  right: 50%;
   bottom: 20px;
+  transform: translateX(40%);
+  width: 100%;
+  max-width: 1550px;
+  right: 20px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
   z-index: 1000;
 }
-.contactUs{
+.contactUs {
   display: flex;
   flex-direction: column;
 }
@@ -215,8 +214,7 @@ const openReservation = () => {
     }
   }
 }
-.goTop{
-
+.goTop {
 }
 @media screen and (max-width: 1024px) {
   .ft_footerTop {
