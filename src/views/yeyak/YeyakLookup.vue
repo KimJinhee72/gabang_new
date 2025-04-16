@@ -1,6 +1,13 @@
 <template>
   <div class="st_wrap">
-    <p class="st_header">예약조회</p>
+    <div class="yy_title1">
+      <!-- 제목 스타일 -->
+      <div class="yy_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>예약조회</h1>
+      </div>
+    </div>
     <div class="st_lookup">
       <input type="text" placeholder="이름" />
       <input type="tel" placeholder="연락처" />
@@ -17,10 +24,7 @@
 .st_wrap {
   width: 90%;
   max-width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,12 +33,22 @@
   font-family: $font-family;
 }
 
-.st_header {
-  text-align: center;
-  font-size: $title-font-size-s;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.yy_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .yy_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
 .st_lookup {
   display: flex;
@@ -45,9 +59,8 @@
   width: 100%;
   max-width: 700px;
   padding: 20px;
-  background-color: $background-maincolor;
+  background-color: #a3e4ff;
   border-radius: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 input {

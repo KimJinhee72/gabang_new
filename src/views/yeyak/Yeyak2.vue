@@ -1,6 +1,13 @@
 <template>
   <div class="st_wrap">
-    <p class="st_header">사전예약</p>
+    <div class="yy_title1">
+      <!-- 제목 스타일 -->
+      <div class="yy_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>사전예약</h1>
+      </div>
+    </div>
     <div class="st_top">
       <p class="st_section-title">예약자 정보</p>
       <div class="st_user">
@@ -60,9 +67,9 @@
               </div>
               <div class="st_pm">
                 <div class="st_counter">
-                  <button @click="item.count++">+</button>
-                  <span>{{ item.count }}</span>
                   <button @click="item.count > 0 && item.count--">-</button>
+                  <span>{{ item.count }}</span>
+                  <button @click="item.count++">+</button>
                 </div>
                 <span class="st_price"
                   >{{ formatCurrency(item.count * item.price) }}원</span
@@ -70,7 +77,8 @@
               </div>
             </div>
             <div class="st_total">
-              총 <strong>{{ formatCurrency(totalPrice) }}원</strong>
+              총 <strong>{{ formatCurrency(totalPrice) }}</strong
+              >원
             </div>
           </div>
         </div>
@@ -90,7 +98,7 @@
 </template>
 
 <script setup>
-import { useReservationStore } from "@/views/yeyak/reservationStore";
+import { useReservationStore } from "../../stores/reservationStore";
 const reservationStore = useReservationStore();
 import { useRouter } from "vue-router";
 const router = useRouter();
@@ -165,6 +173,7 @@ function submitReservation() {
     selectedStart: selectedStart.value,
     selectedStop: selectedStop.value,
     sizes: sizes.map((item) => ({ ...item })), // 깊은 복사
+    totalPrice: totalPrice.value,
   });
 
   router.push("/yeyak4");
@@ -181,27 +190,35 @@ $base-width: 350px;
 .st_wrap {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto $margin-m auto;
-  padding-top: $margin-titletopbottom;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: $font-family;
 }
 
-.st_header {
-  font-size: $title-font-size-s;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.yy_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .yy_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
-
 .st_top {
   width: 100%;
   padding: 20px;
-  background-color: $background-maincolor;
+  background-color: #edfaff;
   border-radius: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -302,9 +319,9 @@ label {
 }
 
 .st_place.active {
-  background-color: $sub-color;
+  background-color: $main-color;
   color: #fff;
-  border-color: $sub-color;
+  border-color: $main-color;
 }
 
 .st_size {
@@ -322,12 +339,13 @@ label {
 }
 
 .st_label {
-  font-size: $basic-font-size-L;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .st_tag {
   color: #7b7b7b;
-  font-size: $basic-font-size-s;
+  font-size: $basic-font-size-m;
 }
 
 .st_pm {
@@ -347,10 +365,13 @@ label {
 .st_counter button {
   width: 32px;
   height: 32px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  background-color: $imgsub-color;
+  background-color: #0066b3;
   border: none;
   border-radius: 6px;
   cursor: pointer;
