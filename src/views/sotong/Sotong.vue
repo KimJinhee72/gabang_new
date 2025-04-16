@@ -93,31 +93,31 @@ const notices = ref([
     content:
       "2025년 7월부터 프리미엄 수하물 서비스가 제공됩니다. 우선 처리, 전용 수하물 취급, 추가 보험 서비스 등 다양한 혜택이 포함되어 있으며, 사전 예약을 통해 저렴한 가격에 이용 가능합니다.",
   },
-{
-  title: "수하물 보관 서비스 확대 안내",
-  content:
-    "혼잡한 공항에서의 편의를 위해 수하물 보관 서비스가 확대됩니다. 주요 국제공항 내 신규 보관소가 추가 설치되며, 1일 단위로 이용 요금이 부과됩니다. 자세한 정보는 모바일 앱에서 확인하세요."
-},
-{
-  title: "가방 파손 예방 포장 서비스 제공",
-  content:
-    "2025년 5월부터 수하물 파손을 방지하기 위한 포장 서비스가 도입됩니다. 내구성이 뛰어난 특수 포장재로 가방을 감싸 손상 위험을 줄이며, 포장 서비스는 체크인 카운터에서 신청할 수 있습니다."
-},
-{
-  title: "애완동물 수하물 운송 서비스 안내",
-  content:
-    "애완동물과의 여행을 위한 수하물 운송 서비스가 개선되었습니다. 전용 이동장과 적정 온도 유지 시스템을 갖춘 화물칸을 제공하며, 출발 24시간 전까지 사전 예약이 필요합니다."
-},
-{
-  title: "국제선 수하물 무료 허용량 변경",
-  content:
-    "2025년 8월부터 일부 국제선 노선의 수하물 무료 허용량이 변경됩니다. 노선별로 최대 허용 중량 및 크기가 다르므로, 항공권 예약 시 확인해 주세요. 초과 시 요금이 발생할 수 있습니다."
-},
-{
-  title: "수하물 실시간 위치 추적 기능 제공",
-  content:
-    "고객 편의를 위해 실시간 수하물 위치 추적 기능이 추가됩니다. 모바일 앱에서 수하물의 현재 위치와 상태를 확인할 수 있으며, 등록된 탑승권과 연동하여 자동 추적됩니다."
-}
+  {
+    title: "수하물 보관 서비스 확대 안내",
+    content:
+      "혼잡한 공항에서의 편의를 위해 수하물 보관 서비스가 확대됩니다. 주요 국제공항 내 신규 보관소가 추가 설치되며, 1일 단위로 이용 요금이 부과됩니다. 자세한 정보는 모바일 앱에서 확인하세요.",
+  },
+  {
+    title: "가방 파손 예방 포장 서비스 제공",
+    content:
+      "2025년 5월부터 수하물 파손을 방지하기 위한 포장 서비스가 도입됩니다. 내구성이 뛰어난 특수 포장재로 가방을 감싸 손상 위험을 줄이며, 포장 서비스는 체크인 카운터에서 신청할 수 있습니다.",
+  },
+  {
+    title: "애완동물 수하물 운송 서비스 안내",
+    content:
+      "애완동물과의 여행을 위한 수하물 운송 서비스가 개선되었습니다. 전용 이동장과 적정 온도 유지 시스템을 갖춘 화물칸을 제공하며, 출발 24시간 전까지 사전 예약이 필요합니다.",
+  },
+  {
+    title: "국제선 수하물 무료 허용량 변경",
+    content:
+      "2025년 8월부터 일부 국제선 노선의 수하물 무료 허용량이 변경됩니다. 노선별로 최대 허용 중량 및 크기가 다르므로, 항공권 예약 시 확인해 주세요. 초과 시 요금이 발생할 수 있습니다.",
+  },
+  {
+    title: "수하물 실시간 위치 추적 기능 제공",
+    content:
+      "고객 편의를 위해 실시간 수하물 위치 추적 기능이 추가됩니다. 모바일 앱에서 수하물의 현재 위치와 상태를 확인할 수 있으며, 등록된 탑승권과 연동하여 자동 추적됩니다.",
+  },
 ]);
 const activeIndex = ref(null);
 
@@ -127,9 +127,7 @@ const toggleNotice = (index) => {
 };
 
 const currentPage = ref(1);
-const itemsPerPage = 7
-;
-
+const itemsPerPage = 7;
 // 총 페이지 수 계산
 const totalPages = computed(() => {
   return Math.ceil(notices.value.length / itemsPerPage);
@@ -164,7 +162,14 @@ const nextPage = () => {
 
 <template>
   <div class="st_wrap">
-    <p>공지사항</p>
+    <div class="st_title1">
+      <!-- 제목 스타일 -->
+      <div class="st_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>공지사항</h1>
+      </div>
+    </div>
     <!-- 스와이프 -->
     <div class="st_slider-container">
       <div
@@ -241,10 +246,7 @@ const nextPage = () => {
 }
 .st_wrap {
   width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,13 +254,24 @@ const nextPage = () => {
   text-align: center;
   font-family: $font-family;
 }
-p {
-  font-size: $title-font-size-s;
-  font-family: $font-family;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.st_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .st_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
+
 /*슬라이더*/
 .st_slider-container {
   width: 100%;
@@ -345,5 +358,45 @@ button.active {
 button:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+@media screen and (max-width: 390px) {
+  .st_wrap {
+    width: 100%;
+    margin: 100px auto;
+    padding: 0 10px;
+  }
+
+  .st_notice-table {
+    width: 100%;
+    font-size: 14px;
+
+    th,
+    td {
+      padding: 8px;
+      word-break: break-word;
+    }
+
+    .st_toggle-icon {
+      margin-right: 10px;
+    }
+  }
+
+  .st_slider-container {
+    width: 100%;
+  }
+
+  .st_title1 .title_txt1 h1 {
+    font-size: 20px;
+  }
+
+  .st_pagination {
+    flex-wrap: wrap;
+    gap: 5px;
+
+    button {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
 }
 </style>

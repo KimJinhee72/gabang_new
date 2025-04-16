@@ -1,14 +1,29 @@
 <template>
   <div class="yy_wrap">
-    <p class="yy_header">예약조회</p>
+    <div class="yy_title1">
+      <!-- 제목 스타일 -->
+      <div class="yy_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>예약조회</h1>
+      </div>
+    </div>
 
     <div class="yy_check" v-if="selectedReservation">
       <div class="reservation-item">
         <table class="reservation-table">
           <tbody>
             <tr>
+              <th>예약번호 :</th>
+              <td>{{ selectedReservation.reservationNumber }}</td>
+            </tr>
+            <tr>
               <th>이름 :</th>
               <td>{{ selectedReservation.name }}</td>
+            </tr>
+            <tr>
+              <th>연락처 :</th>
+              <td>{{ selectedReservation.phone }}</td>
             </tr>
             <tr>
               <th>날짜 :</th>
@@ -41,6 +56,7 @@
     <router-link to="/"><button>처음으로</button></router-link>
   </div>
 </template>
+
 <script setup>
 import { ref, onMounted } from "vue";
 
@@ -75,11 +91,14 @@ function generateRandomBags() {
     .filter((bag) => bag.count > 0);
 }
 
+// 예약 더미 데이터 생성
 function generateDummyReservations(count = 5) {
   const result = [];
   for (let i = 0; i < count; i++) {
     result.push({
+      reservationNumber: `R${Date.now()}${i}`, // 예약번호 추가
       name: getRandomItem(names),
+      phone: `010-${getRandomInt(1000, 9999)}-${getRandomInt(1000, 9999)}`, // 연락처 추가
       date: generateRandomDate(),
       time: `${String(getRandomInt(0, 23)).padStart(2, "0")}:${String(
         getRandomInt(0, 59)
@@ -98,6 +117,7 @@ onMounted(() => {
   selectedReservation.value = getRandomItem(dummy); // 하나만 랜덤 선택
 });
 </script>
+
 <style lang="scss" scoped>
 @use "@/assets/Main.scss" as *;
 @use "@/assets/_Variables.scss" as *;
@@ -105,10 +125,7 @@ onMounted(() => {
 .yy_wrap {
   width: 90%;
   max-width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,12 +134,22 @@ onMounted(() => {
   font-family: $font-family;
 }
 
-.yy_header {
-  text-align: center;
-  font-size: $title-font-size-s;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.yy_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .yy_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
 .yy_check {
   display: flex;
@@ -133,9 +160,8 @@ onMounted(() => {
   width: 100%;
   max-width: 700px;
   padding: 20px;
-  background-color: $background-maincolor;
+  background-color: #a3e4ff;
   border-radius: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 .reservation-table {
   width: 100%;

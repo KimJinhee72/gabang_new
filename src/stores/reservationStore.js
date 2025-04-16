@@ -10,6 +10,7 @@ export const useReservationStore = defineStore("reservation", {
     selectedStart: "",
     selectedStop: "",
     sizes: [],
+    totalPrice: 0
   }),
   actions: {
     setReservation(data) {

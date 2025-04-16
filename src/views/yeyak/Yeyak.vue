@@ -64,7 +64,14 @@ const toggleDetails = (index) => {
 
 <template>
   <div class="st_wrap">
-    <p class="st_header">예약하기</p>
+    <div class="yy_title1">
+      <!-- 제목 스타일 -->
+      <div class="yy_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>예약하기</h1>
+      </div>
+    </div>
     <!-- 이미지 영역 -->
     <div class="st_img">
       <img src="/images/cr/st_reservation01.jpg" alt="사전예약" />
@@ -86,7 +93,7 @@ const toggleDetails = (index) => {
 
         <!-- 토글 내용 -->
         <div v-if="item.isOpen" class="st_details">
-          <p>{{ item.purpose }}</p>
+          <p class="yy_purpose">{{ item.purpose }}</p>
         </div>
         <div class="st_checkbox">
           <label>
@@ -113,23 +120,31 @@ const toggleDetails = (index) => {
 
 .st_wrap {
   width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-family: $font-family;
 }
 
-.st_header {
-  font-size: $title-font-size-s;
-  margin-bottom: $margin-m;
-  font-family: $font-family;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.yy_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .yy_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
 
 .st_img {
@@ -156,7 +171,7 @@ img {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  background-color: #dbdbdb;
+  background-color: #a3e4ff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -167,7 +182,9 @@ img {
   font-size: 18px;
   cursor: pointer;
 }
-
+.yy_purpose {
+  text-align: left;
+}
 .st_details {
   margin-top: 10px;
   padding: 10px;
@@ -201,4 +218,49 @@ img {
 .st_reser:hover {
   background-color: $hover;
 }
+@media (max-width: 390px) {
+  .st_wrap {
+    width: 100%;
+    margin: 100px auto;
+    padding: 0 10px;
+  }
+
+  .yy_title1 {
+    gap: 5px;
+    line-height: 30px;
+  }
+
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_togglemenu {
+    width: 100%;
+  }
+
+  .st_toggleheader {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .st_togglebtn {
+    font-size: 16px;
+  }
+
+  .st_checkbox label {
+    font-size: 14px;
+  }
+
+  .st_reser {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 </style>
