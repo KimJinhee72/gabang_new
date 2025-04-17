@@ -11,14 +11,13 @@
             hide: true,
           }"
           :modules="modules"
-          class="mySwiper macontent2_iconimg1"
-        >
+          class="mySwiper macontent2_iconimg1">
           <!-- 1. 가방도 -->
           <swiper-slide>
             <div class="macontent2_iconimg">
               <a href="#">
                 <!-- 아이콘 이미지 -->
-                <router-link to="/bangbeob"
+                <router-link to="/bangbeob1"
                   ><img
                     src="/public/images/gh/ma_content2/bangbeobdo_icon.png"
                     alt="방법도 아이콘"
@@ -147,7 +146,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-import 'swiper/css/scrollbar';
+import "swiper/css/scrollbar";
 
 // import required modules
 import { Navigation, Scrollbar } from "swiper/modules";
@@ -159,7 +158,7 @@ export default {
   },
   setup() {
     return {
-      modules: [Navigation , Scrollbar],
+      modules: [Navigation, Scrollbar],
     };
   },
 };

@@ -214,8 +214,6 @@ const closeModal = () => {
 <template>
   <div class="st_wrap">
     <div class="st_title1">
-      <!-- 제목 스타일 -->
-      <div class="st_titleLine"></div>
       <!-- 제목 -->
       <div class="title_txt1">
         <h1>이용후기</h1>
@@ -226,24 +224,7 @@ const closeModal = () => {
     <div class="st_reviewbanner">
       <img src="/images/cr/st_reviewbanner.jpg" alt="리뷰이벤트" />
     </div>
-    <div class="write-btn-wrapper">
-      <!-- 글쓰기 버튼 -->
-      <button @click="showForm = !showForm" class="write-btn">
-        {{ showForm ? "취소" : "글쓰기" }}
-      </button>
 
-      <!-- 글쓰기 폼 -->
-      <form v-if="showForm" class="review-form">
-        <input type="text" v-model="newReview.name" placeholder="이름" />
-        <textarea v-model="newReview.content" placeholder="후기내용"></textarea>
-        <input type="file" @change="handleImageUpload" accept="image/*" />
-        <img v-if="previewImage" :src="previewImage" width="120" />
-        <div class="form-buttons">
-          <button type="button" @click="addReview">등록</button>
-          <button type="button" @click="cancelForm">취소</button>
-        </div>
-      </form>
-    </div>
     <!-- 카드이용후기 -->
     <div class="st_bottom">
       <div class="st_card-container">
@@ -269,7 +250,24 @@ const closeModal = () => {
           </div>
         </div>
       </div>
+      <div class="write-btn-wrapper">
+      <!-- 글쓰기 버튼 -->
+      <button @click="showForm = !showForm" class="write-btn">
+        {{ showForm ? "취소" : "글쓰기" }}
+      </button>
 
+      <!-- 글쓰기 폼 -->
+      <form v-if="showForm" class="review-form">
+        <input type="text" v-model="newReview.name" placeholder="이름" />
+        <textarea v-model="newReview.content" placeholder="후기내용"></textarea>
+        <input type="file" @change="handleImageUpload" accept="image/*" />
+        <img v-if="previewImage" :src="previewImage" width="120" />
+        <div class="form-buttons">
+          <button type="button" @click="addReview">등록</button>
+          <button type="button" @click="cancelForm">취소</button>
+        </div>
+      </form>
+    </div>
       <!-- 페이지네이션 버튼 -->
       <div class="st_pagination">
         <button @click="prevPage" :disabled="currentPage === 1">이전</button>

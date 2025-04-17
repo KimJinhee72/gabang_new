@@ -3,10 +3,7 @@
     <div class="inner">
       <!-- 왼쪽 -->
       <div class="mavistxt">
-        <h4>가방도는 당신의 짐을 대신 들어드립니다</h4>
-        <div class="ma_vis_h1">
-        <h1 class="">짐은 원하는 곳에 맡기고 받기</h1>    </div>
-        <h1 class="mablue">지금 맡기세요!</h1>
+        <img src="/public/images/geen/maintxt.png" alt="텍스트이미지">
         <button>예약하기</button>
       </div>
       <!-- 오른쪽 -->
@@ -28,8 +25,7 @@
 .ma_visual-wrap .inner {
   width: 100%;
   max-width: 1300px;
-  margin-top: 50px;
- 
+  margin-top: 50px; 
   display: flex;
   justify-content: flex-end;
   margin: auto;
@@ -37,13 +33,19 @@
 }
 /* 왼쪽 - 텍스트박스  */
 .mavistxt {
-  margin: 13% 0;
-  /* margin-right: 5%; */
+  /* margin: 13% 0;
+  margin-right: 5%;
   width: 25%;
-  text-align: right;
+  text-align: right; */
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  width: 25%;
+  img{
+    margin-top: 150px;
+    width: 100%;
+  
+  }
 }
 .ma_vis_h1 h1:first-child{
   font-size: 20px !important;
@@ -102,7 +104,7 @@ gap: 10px;
 }
 .mavisimg > img {
   width: 100%;
-  padding: 0px 50px 50px 50px;
+  padding: 0px 0px 50px 0px;
 }
 audio {
   width: 100%;

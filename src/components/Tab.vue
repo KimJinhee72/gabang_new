@@ -346,6 +346,7 @@ import "swiper/css/pagination";
   background-color: #fff;
   border: $main-color 1px solid;
   border-radius: 20px;
+  overflow: hidden;
 
   // 탭키
   .bb_StoreTabs {
@@ -597,5 +598,36 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+// 태블릿 : 768px
+@media screen and (max-width: 768px) {
+.bb_StoreTable {
+    width: 100%;
+    height: 700px;
+}
+.bb_StoreTable .bb_StoreContents{
+  height: 600px;
+}
+.bb_tabTitle{
+  font-size: 20px !important;
+}
+th{
+  font-size: 15px !important;
+}
+.bb_cell{
+  font-size: 15px !important;
+}
+}
+
+// 모바일 : 390px
+@media screen and (max-width: 390px) {
+  .bb_StoreTable {
+    width: 100%;
+    height: 600px;
+}
+.bb_StoreTable .bb_StoreContents{
+  height: 550px;
+}
 }
 </style>

@@ -117,8 +117,8 @@ const menuItems = [
   {
     label: "방법도",
     sub: [
-      { label: "짐 보관", to: "/bangbeob" },
       { label: "짐 운송", to: "/bangbeob1" },
+      { label: "짐 보관", to: "/bangbeob2" },
     ],
   },
   {
@@ -217,7 +217,7 @@ header .inner {
 }
 // 로고
 .hd_logo {
-  width: 120px;
+  width: 140px;
   img {
     width: 120px;
   }

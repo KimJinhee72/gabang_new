@@ -6,7 +6,6 @@
         <!-- 순환버스 제목 -->
         <div class="bb_title1">
           <div class="festival-title"></div>
-          <div class="bb_titleLine"></div>
           <div class="title_txt1">
             <h1>대구 {{ activeTab === "CDF018.001" ? "봄" : "가을" }} 축제</h1>
           </div>
@@ -1792,9 +1791,17 @@ header.main.fix .hd-gnb .hd-menu > li:after {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  img{
-
-  }
+  background-size: cover; 
+}
+::v-deep(.swiper-button-prev){
+  color: #ee2b2b;
+  left: var(--swiper-navigation-sides-offset, 390px);
+}
+::v-deep(.swiper-button-prev::after){
+  font-size: 25px;
+}
+::v-deep(.swiper-button-next){
+  color: #ee2b2b;
+  right: var(--swiper-navigation-sides-offset, 390px);
 }
 </style>

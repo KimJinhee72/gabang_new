@@ -3,7 +3,7 @@
     <div class="inner">
       <div class="bb_title1">
         <!-- 제목 스타일 -->
-        <div class="bb_titleLine"></div>
+
         <!-- 제목 -->
         <div class="title_txt1">
           <h1>요금안내</h1>
@@ -30,7 +30,6 @@
       </div>
       <div class="bb_title1 yg_accoutNrefund">
         <!-- 결제환불제목 -->
-        <div class="bb_titleLine"></div>
         <div class="title_txt1">
           <h1>결제&nbsp;&nbsp;및&nbsp;&nbsp;환불</h1>
         </div>

@@ -1,8 +1,6 @@
 <template>
     <div class="bb_tracking-container">
       <div class="bb_title1">
-          <!-- 제목 스타일 -->
-          <div class="bb_titleLine"></div>
           <!-- 제목 -->
           <div class="bb_title_txt1">
             <h1>짐보관 이용절차</h1>

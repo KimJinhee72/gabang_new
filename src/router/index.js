@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/Home.vue";
-import Bangbeob from "@/views/bangbeob/Bangbeob.vue";
 import Bangbeob1 from "../views/bangbeob/Bangbeob1.vue";
+import Bangbeob2 from "../views/bangbeob/Bangbeob2.vue";
 import Yeyak from "@/views/yeyak/Yeyak.vue";
 import Yeyak2 from "../views/yeyak/Yeyak2.vue";
 import Yeyak3 from "../views/yeyak/Yeyak3.vue";
@@ -13,12 +13,12 @@ import Sotong from "@/views/sotong/Sotong.vue";
 import Sotong2 from "../views/sotong/Sotong2.vue";
 import Yeohaeng from "../views/yeohaeng/Yeohaeng.vue";
 import Yh_Festival from "../views/yeohaeng/Yh_Festival.vue";
-import Delivery from "../views/deliverylogin/Delivery.vue"
-import Login from "../views/deliverylogin/Login.vue"
+import Delivery from "../views/deliverylogin/Delivery.vue";
+import Login from "../views/deliverylogin/Login.vue";
 const routes = [
   { path: "/", component: Home },
-  { path: "/bangbeob", component: Bangbeob },
   { path: "/bangbeob1", component: Bangbeob1 },
+  { path: "/bangbeob2", component: Bangbeob2 },
   { path: "/yeyak", component: Yeyak },
   { path: "/yeyak2", component: Yeyak2 },
   { path: "/yeyak3", component: Yeyak3 },
@@ -29,7 +29,7 @@ const routes = [
   { path: "/sotong", component: Sotong },
   { path: "/sotong2", component: Sotong2 },
   { path: "/yeohaeng", component: Yeohaeng },
-  { path: "/yh_festival", component: Yh_Festival }, 
+  { path: "/yh_festival", component: Yh_Festival },
   { path: "/delivery", component: Delivery },
   { path: "/login", component: Login },
 ];
@@ -37,5 +37,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // 항상 맨 위로 스크롤
+    return { top: 0 };
+  },
 });
 export default router;

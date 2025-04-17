@@ -6,7 +6,7 @@
         <div class="macontent2_iconimg">
           <a href="#">
             <!-- 아이콘 이미지 -->
-            <router-link to="/bangbeob"><img
+            <router-link to="/bangbeob1"><img
               src="/public/images/gh/ma_content2/bangbeobdo_icon.png"
               alt="방법도 아이콘"
             /></router-link>

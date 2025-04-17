@@ -163,8 +163,6 @@ const nextPage = () => {
 <template>
   <div class="st_wrap">
     <div class="st_title1">
-      <!-- 제목 스타일 -->
-      <div class="st_titleLine"></div>
       <!-- 제목 -->
       <div class="title_txt1">
         <h1>공지사항</h1>

@@ -12,7 +12,6 @@
         <div class="yh_roundBus">
           <!-- 순환버스 제목 -->
           <div class="bb_title1">
-            <div class="bb_titleLine"></div>
             <div class="title_txt1">
               <h1>순환버스</h1>
             </div>
@@ -25,7 +24,6 @@
           </div>
           <!-- 테마버스 제목 -->
           <div class="bb_title1">
-            <div class="bb_titleLine"></div>
             <div class="title_txt1">
               <h1>테마버스</h1>
             </div>

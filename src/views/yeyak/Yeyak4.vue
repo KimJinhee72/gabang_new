@@ -9,8 +9,6 @@ const reservationStore = useReservationStore();
 <template>
   <div class="st_wrap">
     <div class="yy_title1">
-      <!-- 제목 스타일 -->
-      <div class="yy_titleLine"></div>
       <!-- 제목 -->
       <div class="title_txt1">
         <h1>예약확인</h1>
