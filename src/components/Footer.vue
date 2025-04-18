@@ -42,7 +42,9 @@
     </div>
   </div>
   <!-- 고정 버튼들 -->
-  <div class="fixed-buttons" :class="{ 'fixed-buttons--alt': specialPages.includes(route.path) }">
+  <div
+    class="fixed-buttons"
+    :class="{ 'fixed-buttons--alt': specialPages.includes(route.path) }">
     <button class="inquiry-btn" @click="openReservation">
       <span>예약하러 갈래?</span>
       <img class="fas fa-calendar-check" src="/public/images/gh/1/head.png" />
@@ -51,10 +53,17 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRoute } from "vue-router";
 
-const route = useRoute()
-const specialPages = ['/yeyak', '/yeyaklookup', '/sotong', '/sotong2', '/yh_festival', '/yeohaeng'] // 여기에 페이지 경로 넣기
+const route = useRoute();
+const specialPages = [
+  "/yeyak",
+  "/yeyaklookup",
+  "/sotong",
+  "/sotong2",
+  "/yh_festival",
+  "/yeohaeng",
+]; // 여기에 페이지 경로 넣기
 const openReservation = () => {
   // 예약하기 기능 구현
   console.log("예약하기 클릭");
@@ -173,12 +182,12 @@ const openReservation = () => {
   i {
     font-size: 14px;
   }
-  span{
+  span {
     display: none;
   }
   &:hover {
     transform: translateY(-3px);
-    span{
+    span {
       width: 120px;
       line-height: 45px;
       text-align: center;
@@ -186,11 +195,12 @@ const openReservation = () => {
       font-size: 16px;
       border-radius: 30px;
       background-color: #fff;
-      box-shadow: 0 4px 10px rgba(212, 141, 77, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(212, 141, 77, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
-  img{
-    width: 60px;
+  img {
+    width: 80px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -231,7 +241,9 @@ const openReservation = () => {
       font-size: 12px;
     }
   }
-
+  .fas{
+    width: 60px !important;
+  }
   .ft_contactUs {
     h1 {
       font-size: 16px;
@@ -275,8 +287,7 @@ const openReservation = () => {
     i {
       font-size: 11px;
     }
-  }
-
+  }  
   .ft_contactUs {
     h1 {
       font-size: 15px;

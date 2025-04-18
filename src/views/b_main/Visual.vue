@@ -4,7 +4,7 @@
       <!-- 왼쪽 -->
       <div class="mavistxt">
         <img src="/public/images/geen/maintxt.png" alt="텍스트이미지">
-        <button>예약하기</button>
+        <button>예약하기        </button>
       </div>
       <!-- 오른쪽 -->
       <div class="mavisimg">
@@ -78,10 +78,12 @@ gap: 10px;
   padding: 20px 0 !important;
 }
 .mavistxt > button {
+  position: relative;
   width: 145px;
   line-height: 60px;
   font-size: 19px;
-  background: #0066b3;
+  // background: #0066b3;
+  background: #db27b1;
   color: white;
   border: none;
   border-radius: $border-radius-L + $border-radius-s ;
@@ -97,7 +99,7 @@ gap: 10px;
   };
 }
 .mavistxt > button:hover {
-  background: #162b50;
+  background: #e961c9;
 }
 /* 오른쪽 - gif이미지 */
 .mavisimg {
@@ -119,6 +121,4 @@ audio {
   bottom: 50px;
   right: 0px;
 }
-
-
 </style>

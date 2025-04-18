@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <Header/>
+    <Header_subtypeAll/>
     <main class="main">
       
       <router-view></router-view>
@@ -11,7 +11,8 @@
 </template>
 
 <script setup>
-import Header from './components/Header.vue';
+// import Header from './components/Header.vue';
+import Header_subtypeAll from './components/Header_subtypeAll .vue';
 import Footer from './components/Footer.vue';
 
 </script>
