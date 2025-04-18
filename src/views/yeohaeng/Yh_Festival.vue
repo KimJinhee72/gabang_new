@@ -1791,12 +1791,31 @@ header.main.fix .hd-gnb .hd-menu > li:after {
 ::v-deep(.swiper-button-prev){
   color: #ee2b2b;
   left: var(--swiper-navigation-sides-offset, 390px);
+  @media (max-width: 1530px) {
+    left: var(--swiper-navigation-sides-offset, 150px) !important;
+  }
+  @media (max-width: 1190px) {
+    left: var(--swiper-navigation-sides-offset, 50px) !important;
+  }
+  @media (max-width: 870px) {
+    display: none;
+  }
 }
 ::v-deep(.swiper-button-prev::after){
   font-size: 25px;
+  
 }
 ::v-deep(.swiper-button-next){
   color: #ee2b2b;
   right: var(--swiper-navigation-sides-offset, 390px);
+  @media (max-width: 1530px) {
+    right: var(--swiper-navigation-sides-offset, 150px);
+  }
+  @media (max-width: 1190px) {
+    right: var(--swiper-navigation-sides-offset, 50px);
+  }
+  @media (max-width: 870px) {
+    display: none !important;
+  }
 }
 </style>

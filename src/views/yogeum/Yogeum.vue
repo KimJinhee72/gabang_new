@@ -86,7 +86,6 @@ import Homeswiper1 from "../b_main/Homeswiper1.vue";
 // - isMobile: 현재 화면이 모바일인지 여부 (true: 모바일 화면)
 // - isMenuOpen: 현재 메뉴가 열려 있는지 여부 (여기선 모바일에서 true)
 const isMobile = ref(window.innerWidth < 635);
-console.log(isMobile.value);
 //  창 크기 변경 시 실행되는 함수
 const handleResize = () => {
   const width = window.innerWidth;

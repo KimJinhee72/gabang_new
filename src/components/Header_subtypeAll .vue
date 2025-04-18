@@ -86,8 +86,7 @@
                 </a>
                 <ul
                   v-if="openedMobileMenu === index"
-                  class="subMenu show"
-                  :class="{ show: openedMenu === index }">
+                  class="subMenu show">
                   <li v-for="(sub, idx) in item.sub" :key="idx">
                     <router-link :to="sub.to">{{ sub.label }}</router-link>
                   </li>
@@ -98,8 +97,7 @@
         </div>
       </div>
     </div>
-    <div   :class="{ show: showAllSubMenu }"  class="hd_subMenubg" @mouseenter="showAllSubMenu = true"
-    @mouseleave="showAllSubMenu = false" ></div>
+    <div   :class="{ show: showAllSubMenu }"  class="hd_subMenubg"  ></div>
   </header>
 </template>
 
@@ -187,9 +185,6 @@ const menuItems = [
     ],
   },
 ];
-const closeSubMenu = () => {
-  openedMenu.value = null;
-};
 
 // 햄버거 메뉴 토글 상태
 const shortMenu = ref(false);
