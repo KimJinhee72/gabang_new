@@ -42,35 +42,19 @@
     </div>
   </div>
   <!-- 고정 버튼들 -->
-  <div class="fixed-buttons">
-    <button class="inquiry-btn goTopbtn" @click="scrollToTop">
-      <i class="fas fa-arrow-up"></i>
-      <span>위로가기</span>
-    </button>
-    <button class="inquiry-btn" @click="openInquiry">
-      <i class="fas fa-comment"></i>
-      <span>간편문의하기</span>
-    </button>
+  <div class="fixed-buttons" :class="{ 'fixed-buttons--alt': specialPages.includes(route.path) }">
     <button class="inquiry-btn" @click="openReservation">
-      <i class="fas fa-calendar-check"></i>
-      <span>예약하기</span>
+      <span>예약하러 갈래?</span>
+      <img class="fas fa-calendar-check" src="/public/images/gh/1/head.png" />
     </button>
   </div>
 </template>
 
 <script setup>
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
+import { useRoute } from 'vue-router'
 
-const openInquiry = () => {
-  // 간편문의하기 기능 구현
-  console.log("간편문의하기 클릭");
-};
-
+const route = useRoute()
+const specialPages = ['/yeyak', '/yeyaklookup', '/sotong', '/sotong2', '/yh_festival', '/yeohaeng'] // 여기에 페이지 경로 넣기
 const openReservation = () => {
   // 예약하기 기능 구현
   console.log("예약하기 클릭");
@@ -158,11 +142,10 @@ const openReservation = () => {
 // 고정버튼들
 .fixed-buttons {
   position: fixed;
-  right: 50%;
-  bottom: 20px;
-  transform: translateX(40%);
+  bottom: 80px;
+  transform: translateX(43%);
   width: 100%;
-  max-width: 1550px;
+  max-width: 1000px;
   right: 20px;
   display: flex;
   flex-direction: column;
@@ -170,51 +153,45 @@ const openReservation = () => {
   gap: 8px;
   z-index: 1000;
 }
+// 다른페이지
+// .fixed-buttons--alt {
+//   bottom: 80px; /* 위치 조정 예시 */
+//   right: 300px;
+//   transform: translateX(35%);
+// }
 .contactUs {
   display: flex;
   flex-direction: column;
 }
 .inquiry-btn {
-  background-color: #0066b3;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 13px;
+  all: unset; /* 버튼 기본 스타일 제거 */
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   i {
     font-size: 14px;
   }
-
+  span{
+    display: none;
+  }
   &:hover {
-    transform: translateY(-2px);
-  }
-
-  &:nth-child(1) {
-    background-color: #666;
-    &:hover {
-      background-color: #444;
+    transform: translateY(-3px);
+    span{
+      width: 120px;
+      line-height: 45px;
+      text-align: center;
+      display: block;
+      font-size: 16px;
+      border-radius: 30px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(212, 141, 77, 0.3), 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
-
-  &:nth-child(2) {
-    background-color: #0066b3;
-    &:hover {
-      background-color: #162b50;
-    }
+  img{
+    width: 60px;
   }
-
-  &:nth-child(3) {
-    background-color: #ff6b6b;
-    &:hover {
-      background-color: #ff5252;
-    }
-  }
-}
-.goTop {
 }
 @media screen and (max-width: 1024px) {
   .ft_footerTop {
@@ -295,7 +272,6 @@ const openReservation = () => {
   .inquiry-btn {
     padding: 6px 12px;
     font-size: 11px;
-
     i {
       font-size: 11px;
     }

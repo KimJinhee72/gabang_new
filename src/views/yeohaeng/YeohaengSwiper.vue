@@ -106,8 +106,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@use "/src/assets/Variables" as *;
 h4{
   margin: 10px 0 ;
+  font-size: 20px;
+  color: $main-color;
 }
 .swiper-slide {
   width: 100% !important;

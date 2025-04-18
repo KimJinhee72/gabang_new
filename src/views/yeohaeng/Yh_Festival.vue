@@ -312,13 +312,8 @@ onMounted(() => {
   flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
-  .bb_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 header.main {

@@ -20,7 +20,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 //  각종 컴포넌트 import
-import Visual from "@/views/b_main/Visual.vue";
+import Visual from "./views/b_main/Visual.vue";
 import Content1 from "@/views/b_main/Content1.vue";
 import Homeswiper1 from "./views/b_main/Homeswiper1.vue";
 import Homeswiper2 from "./views/b_main/Homeswiper2.vue";
