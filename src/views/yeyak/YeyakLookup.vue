@@ -39,11 +39,7 @@
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-  .yy_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
+
   .title_txt1 h1 {
     font-size: 25px;
   }
@@ -57,8 +53,11 @@
   width: 100%;
   max-width: 700px;
   padding: 20px;
-  background-color: #a3e4ff;
-  border-radius: 20px;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
+    border-radius: 20px;
+    padding: 30px auto;
+    margin: 30px auto;
 }
 
 input {

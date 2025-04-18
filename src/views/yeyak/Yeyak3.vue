@@ -194,6 +194,7 @@ $base-width: 350px;
   align-items: center;
   font-family: $font-family;
 }
+
 .yy_title1 {
   display: flex;
   gap: 10px;
@@ -202,22 +203,17 @@ $base-width: 350px;
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-  .yy_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
+
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
-
 .st_top {
   width: 100%;
   padding: 20px;
-  background-color: #edfaff;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
   border-radius: 20px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,7 +222,7 @@ $base-width: 350px;
 .st_section-title {
   font-weight: bold;
   font-size: 1.1rem;
-  margin: 15px auto 10px;
+  margin: 15px auto;
   text-align: center;
 }
 
@@ -239,7 +235,7 @@ label {
   height: 44px;
   padding: 10px;
   margin: 8px auto;
-  border: 1px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   box-sizing: border-box;
 }
@@ -272,7 +268,7 @@ label {
   max-width: 150px;
   height: 44px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
 }
 
@@ -288,7 +284,7 @@ label {
   width: 70px;
   text-align: center;
   height: 44px;
-  border: 1px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   padding: 8px;
 }
@@ -311,7 +307,7 @@ label {
   min-width: 60px;
   padding: 10px;
   background-color: #fff;
-  border: 2px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -328,7 +324,7 @@ label {
   justify-content: space-between;
   padding: 15px;
   background-color: #fff;
-  border: 2px solid #ddd;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   margin: 10px 0;
 }
@@ -338,12 +334,13 @@ label {
 }
 
 .st_label {
-  font-size: $basic-font-size-L;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .st_tag {
   color: #7b7b7b;
-  font-size: $basic-font-size-s;
+  font-size: $basic-font-size-m;
 }
 
 .st_pm {
@@ -383,10 +380,10 @@ label {
   width: 100%;
   max-width: $base-width;
   background-color: #fff;
-  border: 2px solid #ddd;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   padding: 15px;
-  margin-top: 15px;
+  margin: 15px auto;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
