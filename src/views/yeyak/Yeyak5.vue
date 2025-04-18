@@ -1,9 +1,6 @@
+<template>
+  <div>예약완료</div>
+</template>
+<script setup></script>
 
-
-<script setup>
-
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

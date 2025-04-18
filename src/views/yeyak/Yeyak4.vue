@@ -99,7 +99,7 @@ const reservationStore = useReservationStore();
       <h4>네이버페이결제</h4>
       <img src="/images/cr/yy_naver.jpg" />
     </div>
-    <router-link to="/yeyak5" class="st_btn">결제하기</router-link>
+    <router-link to="/yeyak5" class="st_button">결제하기</router-link>
   </div>
 </template>
 <style lang="scss" scoped>

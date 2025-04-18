@@ -522,7 +522,7 @@ h6 {
 
   .st_card-container {
     width: 100%;
-    gap: 16px;
+    gap: 30px;
     justify-content: center;
   }
 
@@ -588,7 +588,7 @@ h6 {
 
   .st_card-container {
     width: 100%;
-    gap: 12px;
+    gap: 25px;
     justify-content: center;
   }
 
