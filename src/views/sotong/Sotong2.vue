@@ -505,6 +505,80 @@ h6 {
     }
   }
 }
+@media (max-width: 768px) {
+  .st_wrap {
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .title_txt1 h1 {
+    font-size: 22px;
+  }
+
+  .st_reviewbanner img {
+    width: 100%;
+    height: auto;
+  }
+
+  .st_card-container {
+    width: 100%;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .st_card {
+    width: 280px;
+    height: 400px;
+  }
+
+  .st_card .st_img-product img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .write-btn {
+    width: 90px;
+    font-size: 15px;
+  }
+
+  .review-form {
+    width: 100%;
+  }
+
+  .review-form input,
+  .review-form textarea {
+    font-size: 15px;
+  }
+
+  .form-buttons {
+    gap: 8px;
+  }
+
+  .st_pagination {
+    flex-wrap: wrap;
+    gap: 10px;
+
+    button {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+  }
+
+  .modal-content {
+    width: 90%;
+    font-size: 15px;
+
+    img {
+      max-height: 240px;
+      object-fit: contain;
+    }
+
+    button {
+      font-size: 15px;
+    }
+  }
+}
+
 @media (max-width: 390px) {
   .st_wrap {
     width: 100%;
@@ -548,7 +622,6 @@ h6 {
   }
 
   .st_pagination {
-    flex-direction: column;
     gap: 6px;
   }
 

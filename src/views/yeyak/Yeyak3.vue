@@ -444,4 +444,113 @@ label {
   border-radius: 6px;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .yy_title1 .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_top {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .st_label {
+    font-size: 18px;
+  }
+
+  .st_select-time {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .st_place {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .st_size {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .st_pm {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .st_reserve-btn {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+
+  .modal {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .modal h3 {
+    font-size: 18px;
+  }
+
+  .modal p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .yy_title1 .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_section-title {
+    font-size: 1rem;
+  }
+
+  input,
+  select,
+  button,
+  label {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .st_place {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .st_counter button {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .st_reserve-btn {
+    font-size: 0.95rem;
+  }
+
+  .st_total {
+    font-size: 1rem;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+
+  .modal h3 {
+    font-size: 16px;
+  }
+
+  .modal p {
+    font-size: 13px;
+  }
+
+  .modal button {
+    font-size: 14px;
+  }
+}
 </style>
