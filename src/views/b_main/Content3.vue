@@ -6,7 +6,7 @@
         <div class="ma3bg">
           <div class="ma3img">
             <img
-              src="/public/images/gh/yd_bag.png"
+              src="/public/images/gh/ma_content3/character_1.png"
               alt="여행도" />
           </div>
           <div class="ma3txt">

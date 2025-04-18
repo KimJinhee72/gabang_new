@@ -160,20 +160,41 @@ onMounted(() => {
 .reservation-table {
   width: 100%;
   max-width: 600px;
-  border-collapse: collapse;
+  border-collapse: separate; // ✅ border 간격 조정 가능
+  border-spacing: 0 10px; // ✅ 행 간격 부여
   margin: 20px auto;
+  table-layout: fixed; // ✅ 열 너비 균일하게 설정
 }
 
 .reservation-table th,
 .reservation-table td {
+  padding: 12px 16px; // ✅ 여백 넉넉히
   padding: 10px;
   text-align: left;
   vertical-align: top;
 }
-
-.reservation-table th {
-  width: 100px;
+.reservation-table td {
+  width: 60%; // ✅ 오른쪽 열 고정
+  word-wrap: break-word;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  text-align: justify;
 }
+.reservation-table th {
+  width: 40%; // ✅ 왼쪽 열 고정
+  max-width: 500px;
+  white-space: nowrap; // 줄바꿈 방지
+  font-weight: bold;
+  color: #333;
+  text-align: justify;
+  position: relative;
+}
+th:after{
+	content: '';
+  display: inline-block;
+  width: 100%;
+}
+
 button {
   padding: $padding-sss $margin-ss;
   margin: $margin-ss;
