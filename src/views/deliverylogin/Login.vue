@@ -22,8 +22,8 @@
     </form>
 
     <div class="bb_login-links">
-      <a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a> |
-      <a href="#">회원가입</a>
+      <router-link to="signups">아이디 찾기</router-link> | <router-link to="/findpassword">비밀번호 찾기</router-link> |
+      <router-link to="/signup">회원가입</router-link>
     </div>
 
     <div class="bb_sns-login">
@@ -32,15 +32,15 @@
       <div class="bb_grayline"></div>
     </div>
     <div class="bb_sns-icons">
-      <a href="#"
+      <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Faccounts.kakao.com%2Fweblogin%2Faccount#login"
         ><img src="/public/images/yr/loginpage/loginKT.png" alt="깨톡"
       /></a>
-      <a href="#"
+      <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"
         ><img src="/public/images/yr/loginpage/loginN.png" alt="네이버"
       /></a>
 
 
-      <a href="#"
+      <a href="https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Ftakeout.google.com%2F%3Fhl%3Dko&followup=https%3A%2F%2Ftakeout.google.com%2F%3Fhl%3Dko&hl=ko&osid=1&passive=1209600&ifkv=AXH0vVudToPB1oXfNyrRstCJ2S8_6MGsxrjKMEimiqpbXowYURSOX1dz9tFsLIFhTsRW8skj6ngVQw&ddm=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
         ><img src="/public/images/yr/loginpage/loginG.png" alt="구글"
       /></a>
     </div>

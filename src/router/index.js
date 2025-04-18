@@ -15,6 +15,8 @@ import Yeohaeng from "../views/yeohaeng/Yeohaeng.vue";
 import Yh_Festival from "../views/yeohaeng/Yh_Festival.vue";
 import Delivery from "../views/deliverylogin/Delivery.vue";
 import Login from "../views/deliverylogin/Login.vue";
+import Signup from "../views/deliverylogin/Signup.vue"
+import findPassword from "../views/deliverylogin/findPassword.vue";
 const routes = [
   { path: "/", component: Home },
   { path: "/bangbeob1", component: Bangbeob1 },
@@ -32,6 +34,14 @@ const routes = [
   { path: "/yh_festival", component: Yh_Festival },
   { path: "/delivery", component: Delivery },
   { path: "/login", component: Login },
+  { path: "/signup", component: Signup },
+  { path: "/findpassword", component: findPassword },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'ErrorPage',
+    component: () => import('../views/ErrorPage.vue')
+  },
+  
 ];
 
 const router = createRouter({
