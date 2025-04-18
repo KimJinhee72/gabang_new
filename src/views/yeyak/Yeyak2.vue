@@ -9,24 +9,27 @@
     <div class="st_top">
       <p class="st_section-title">예약자 정보</p>
       <div class="st_user">
-        <input type="text" placeholder="이름" v-model="name" />
-        <input type="tel" placeholder="전화번호" v-model="phone" />
+        <input type="text" placeholder="이름" v-model="name" required />
+        <input type="tel" placeholder="전화번호" v-model="phone" required />
       </div>
       <div class="st_time">
         <p class="st_section-title">이용 날짜 및 시간</p>
         <div class="st_date">
-          <input type="date" class="st_date" v-model="selectedDate" />
+          <input type="date" class="st_date" v-model="selectedDate" required />
           <div class="st_select-time">
             <select v-model="selectedHour">
               <option>--</option>
-              <option v-for="hour in 24" :key="hour">
+              <option v-for="hour in 24" :key="hour" required>
                 {{ hour === 24 ? "00" : String(hour).padStart(2, "0") }}
               </option>
             </select>
             <span>시</span>
             <select v-model="selectedMinute">
               <option>--</option>
-              <option v-for="minute in [0, 10, 20, 30, 40, 50]" :key="minute">
+              <option
+                v-for="minute in [0, 10, 20, 30, 40, 50]"
+                :key="minute"
+                required>
                 {{ String(minute).padStart(2, "0") }}
               </option>
             </select>
@@ -41,7 +44,8 @@
               :key="'start-' + index"
               class="st_place"
               :class="{ active: selectedStart === place }"
-              @click="selectedStart = place">
+              @click="selectedStart = place"
+              required>
               {{ place }}
             </button>
           </div>
@@ -52,13 +56,18 @@
               :key="'stop-' + index"
               class="st_place"
               :class="{ active: selectedStop === place }"
-              @click="selectedStop = place">
+              @click="selectedStop = place"
+              required>
               {{ place }}
             </button>
           </div>
           <p class="st_section-title">여행가방 종류 및 수량</p>
           <div class="st_price">
-            <div class="st_size" v-for="(item, index) in sizes" :key="index">
+            <div
+              class="st_size"
+              v-for="(item, index) in sizes"
+              :key="index"
+              required>
               <div class="st_text">
                 <p class="st_label">{{ item.label }}</p>
                 <p class="st_tag">{{ item.tag }}</p>
@@ -382,7 +391,7 @@ label {
   border: 1px solid #b5b5b5;
   border-radius: 10px;
   padding: 15px;
-  margin: 15px auto ;
+  margin: 15px auto;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
@@ -553,5 +562,4 @@ label {
     font-size: 14px;
   }
 }
-
 </style>
