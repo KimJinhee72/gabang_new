@@ -12,7 +12,7 @@
             /></router-link>
             <!-- hover시 보일 텍스트 -->
             <div class="macontent2_icon_hover">
-              <h5>짐운송, 보관,<br />차량 대절까지<br />당일 배송, <br>안전한 픽업</h5>
+              <h5>운송 보관<br />어디든지</h5>
             </div>
           </a>
           <!-- 항상 보이는 텍스트 -->
@@ -31,9 +31,8 @@
             <!-- hover시 보일 텍스트 -->
             <div class="macontent2_icon_hover">
               <h5>
-                특별 예약으로<br />
-                원하는 서비스를
-                빠르게 이용하세요.
+                가방맡기기
+                <br />지금 예약
               </h5>
             </div>
           </a>
@@ -50,8 +49,7 @@
             <!-- hover시 보일 텍스트 -->
             <div class="macontent2_icon_hover">
               <h5>
-                서비스 요금과<br> 결제 방법<br />
-                전체적으로 <br>확인하세요.
+                서비스 요금<br> 결제 방법<br />
               </h5>
             </div>
           </a>
@@ -71,7 +69,7 @@
             <!-- hover시 보일 텍스트 -->
             <div class="macontent2_icon_hover">
               <h5>
-                공지사항과<br> 커뮤니티에서<br />가방도 프로모션과<br> 후기들을<br />만나보세요.
+                공지사항<br> 이용후기
               </h5>
             </div>
           </a>
@@ -87,7 +85,7 @@
             <router-link to="/yeohaeng"><img src="/public/images/gh/ma_content2/trip_icon.png" alt="여행도 아이콘" /></router-link>
             <!-- hover시 보일 텍스트 -->
             <div class="macontent2_icon_hover">
-              <h5>대구 축제,<br> 관광지, 맛집<br />정보를 만나보세요.</h5>
+              <h5>대구 축제<br/>시티투어</h5>
             </div>
           </a>
           <!-- 항상 보이는 텍스트 -->

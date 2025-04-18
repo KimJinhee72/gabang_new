@@ -6,7 +6,7 @@
         <div class="ma3bg">
           <div class="ma3img">
             <img
-              src="/public/images/gh/ma_content3/character_1.png"
+              src="/public/images/gh/yd_bag.png"
               alt="여행도" />
           </div>
           <div class="ma3txt">
@@ -52,12 +52,12 @@
 @use "/src/assets/Variables" as *;
 /* 전체영역 */
 .macontent3_wrap {
-  position: relative;
   width: 100%;
   max-width: 40%;
+  position: relative;
   margin: auto;
+  line-height: 25px;
 }
-
 /* 중앙 원 */
 .macontent3_wrap> .inner::before {
   display: none;
@@ -72,14 +72,6 @@
   transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
   z-index: -2; /* 콘텐츠보다 뒤에 배치 */
 }
-/* 컨텐츠 전체영역 */
-.macontent3_wrap {
-  position: relative;
-  width: 100%;
-  margin: auto;
-  line-height: 25px;
-}
-
 /* 가운데 정렬 */
 .macontent3_wrap .inner {
   position: relative;
@@ -94,6 +86,7 @@
 .macontent3_gp {
   display: flex;
   width: 200%;
+  max-width: 1050px;
   margin: 20px 0;
 }
 

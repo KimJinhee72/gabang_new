@@ -203,13 +203,8 @@ $base-width: 350px;
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-  .yy_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 .st_top {
