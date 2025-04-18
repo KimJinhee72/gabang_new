@@ -244,7 +244,7 @@ const nextPage = () => {
 }
 .st_wrap {
   width: 700px;
-margin: 100px auto;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -357,6 +357,47 @@ button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
+@media screen and (max-width: 768px) {
+  .st_wrap {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .st_title1 .title_txt1 h1 {
+    font-size: 22px;
+  }
+
+  .st_notice-table {
+    width: 100%;
+    font-size: 15px;
+
+    th,
+    td {
+      padding: 10px 5px;
+      word-break: break-word;
+    }
+
+    .st_toggle-icon {
+      margin-right: 15px;
+    }
+  }
+
+  .st_slider-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .st_pagination {
+    flex-wrap: wrap;
+    gap: 6px;
+
+    button {
+      font-size: 13px;
+      padding: 6px 10px;
+    }
+  }
+}
+
 @media screen and (max-width: 390px) {
   .st_wrap {
     width: 100%;

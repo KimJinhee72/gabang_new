@@ -104,12 +104,8 @@ const toggleDetails = (index) => {
       </div>
     </div>
     <div class="st_button">
-      <router-link to="/yeyak2">
-        <button class="st_reser">사전예약</button>
-      </router-link>
-      <router-link to="/yeyak3">
-        <button class="st_reser">당일예약</button>
-      </router-link>
+      <router-link to="/yeyak2" class="st_reser">사전예약</router-link>
+      <router-link to="/yeyak3" class="st_reser">당일예약</router-link>
     </div>
   </div>
 </template>
@@ -137,13 +133,8 @@ const toggleDetails = (index) => {
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-  .yy_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 
@@ -156,7 +147,6 @@ img {
 }
 .st_toggle {
   width: 100%;
-  margin-bottom: $margin-L;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,14 +154,14 @@ img {
 }
 
 .st_togglemenu {
-  width: 90%;
+  width: 100%;
 }
 
 .st_toggleheader {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  background-color: #a3e4ff;
+  background-color: #c6eeff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -179,7 +169,7 @@ img {
 }
 
 .st_togglebtn {
-  font-size: 18px;
+  font-size: 13px;
   cursor: pointer;
 }
 .yy_purpose {
@@ -192,6 +182,7 @@ img {
 
 .st_checkbox {
   margin: 10px auto;
+  width: 90%;
 }
 
 .st_checkbox label {
@@ -204,57 +195,87 @@ img {
 .st_checkbox input {
   margin-right: 8px;
 }
-.st_reser {
-  padding: $padding-ss $margin-s;
-  margin: $margin-ss;
-  font-size: $basic-font-size-L;
-  font-family: $font-family;
-  color: #fff;
-  background-color: $main-color;
-  border: none;
-  border-radius: $border-radius-sm;
-  cursor: pointer;
+.st_button {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.st_reser {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: $main-color;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
 .st_reser:hover {
   background-color: $hover;
 }
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .st_wrap {
-    width: 100%;
-    margin: 100px auto;
-    padding: 0 10px;
+    width: 90%;
+    margin: 50px auto;
   }
 
-  .yy_title1 {
-    gap: 5px;
-    line-height: 30px;
-  }
-
-  .title_txt1 h1 {
+  .yy_title1 .title_txt1 h1 {
     font-size: 25px;
   }
 
-  .st_togglemenu {
+  .st_reser {
     width: 100%;
+    font-size: 16px;
   }
 
   .st_toggleheader {
-    font-size: 14px;
+    font-size: 15px;
     padding: 8px;
   }
 
-  .st_togglebtn {
-    font-size: 16px;
+  .yy_purpose {
+    font-size: 14px;
   }
 
   .st_checkbox label {
     font-size: 14px;
   }
 
+  .st_button {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+  }
+}
+
+@media (max-width: 390px) {
+  .st_wrap {
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .yy_title1 .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_toggleheader {
+    font-size: 14px;
+  }
+
+  .yy_purpose {
+    font-size: 13px;
+  }
+
+  .st_checkbox label {
+    font-size: 13px;
+  }
+
   .st_reser {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   img {
@@ -262,5 +283,4 @@ img {
     height: auto;
   }
 }
-
 </style>

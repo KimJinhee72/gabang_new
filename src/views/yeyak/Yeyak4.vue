@@ -11,42 +11,42 @@ const reservationStore = useReservationStore();
     <div class="yy_title1">
       <!-- 제목 -->
       <div class="title_txt1">
-        <h1>예약확인</h1>
+        <h1>예약·결제하기</h1>
       </div>
     </div>
     <div class="st_check">
       <table class="st_table">
         <tbody>
           <tr>
-            <th><div class="flex-space">이름 :</div></th>
+            <th><span class="fix th-name">이름 :</span></th>
             <td>{{ reservationStore.name }}</td>
           </tr>
           <tr>
-            <th><div class="flex-space">전화번호 :</div></th>
+            <th><span class="fix th-phone">전화번호 :</span></th>
             <td>{{ reservationStore.phone }}</td>
           </tr>
           <tr>
-            <th><div class="flex-space">날짜 :</div></th>
+            <th><span class="fix th-date">날짜 :</span></th>
             <td>{{ reservationStore.selectedDate }}</td>
           </tr>
           <tr>
-            <th><div class="flex-space">시간 :</div></th>
+            <th><span class="fix th-time">시간 :</span></th>
             <td>
               {{ reservationStore.selectedHour }}시
               {{ reservationStore.selectedMinute }}분
             </td>
           </tr>
           <tr>
-            <th><div class="flex-space">출발 :</div></th>
+            <th><span class="fix th-start">출발 :</span></th>
             <td>{{ reservationStore.selectedStart }}</td>
           </tr>
           <tr>
-            <th><div class="flex-space">도착 :</div></th>
+            <th><span class="fix th-stop">도착 :</span></th>
             <td>{{ reservationStore.selectedStop }}</td>
           </tr>
           <tr>
             <th rowspan="{{ reservationStore.sizes.length }}">
-              <div class="flex-space">가방수량 :</div>
+              <span class="fix th-bag">가방수량 :</span>
             </th>
             <td>
               <p v-for="(item, i) in reservationStore.sizes" :key="i">
@@ -55,7 +55,7 @@ const reservationStore = useReservationStore();
             </td>
           </tr>
           <tr>
-            <th><div class="flex-space">총 금액 :</div></th>
+            <th><span class="fix th-total">총 금액 :</span></th>
             <td>{{ reservationStore.totalPrice.toLocaleString() }}원</td>
           </tr>
         </tbody>
@@ -99,7 +99,7 @@ const reservationStore = useReservationStore();
       <h4>네이버페이결제</h4>
       <img src="/images/cr/yy_naver.jpg" />
     </div>
-    <router-link to="/"><button>결제하기</button></router-link>
+    <router-link to="/yeyak5" class="st_btn">결제하기</router-link>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -139,22 +139,30 @@ const reservationStore = useReservationStore();
   box-shadow: $box-shadow;
 }
 .st_table {
-  width: 50%;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
   border-collapse: collapse;
-  margin: 20px auto;
-
-  th,
-  td {
-    padding: 10px;
-    text-align: left;
-    vertical-align: top;
-  }
-  th {
-    width: 100px;
-    text-align: left;
-    white-space: nowrap;
-  }
 }
+.st_table th {
+  position: relative;
+  text-align: left;
+  width: 180px; /* 고정된 너비 */
+  letter-spacing: 2px; /* 자간 설정 */
+  white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .yy_credit {
   display: flex;
   gap: 1rem;
@@ -217,19 +225,26 @@ const reservationStore = useReservationStore();
   border: 1px solid #ddd;
   transition: all 0.3s ease;
 }
-
-button {
-  padding: $padding-sss $margin-ss;
-  margin: $margin-ss;
-  font-size: $basic-font-size-L;
-  font-family: $font-family;
-  color: #fff;
-  background-color: $main-color;
-  border: none;
-  border-radius: $border-radius-sm;
-  cursor: pointer;
+.st_button {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-button:hover {
+
+.st_reser {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: $main-color;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.st_reser:hover {
   background-color: $hover;
 }
 @media (max-width: 390px) {
