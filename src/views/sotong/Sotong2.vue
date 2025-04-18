@@ -243,31 +243,33 @@ const closeModal = () => {
                   <span>{{ tag.name }}</span>
                 </a>
               </div>
-              <h5>
-                ✨{{ maskedName(product.name) }}✨님의<br />이용후기입니다😊
-              </h5>
+              <div class="st_text">
+                <h6>{{ maskedName(product.name) }}님의 이용후기입니다</h6>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="write-btn-wrapper">
-      <!-- 글쓰기 버튼 -->
-      <button @click="showForm = !showForm" class="write-btn">
-        {{ showForm ? "취소" : "글쓰기" }}
-      </button>
+        <!-- 글쓰기 버튼 -->
+        <button @click="showForm = !showForm" class="write-btn">
+          {{ showForm ? "취소" : "글쓰기" }}
+        </button>
 
-      <!-- 글쓰기 폼 -->
-      <form v-if="showForm" class="review-form">
-        <input type="text" v-model="newReview.name" placeholder="이름" />
-        <textarea v-model="newReview.content" placeholder="후기내용"></textarea>
-        <input type="file" @change="handleImageUpload" accept="image/*" />
-        <img v-if="previewImage" :src="previewImage" width="120" />
-        <div class="form-buttons">
-          <button type="button" @click="addReview">등록</button>
-          <button type="button" @click="cancelForm">취소</button>
-        </div>
-      </form>
-    </div>
+        <!-- 글쓰기 폼 -->
+        <form v-if="showForm" class="review-form">
+          <input type="text" v-model="newReview.name" placeholder="이름" />
+          <textarea
+            v-model="newReview.content"
+            placeholder="후기내용"></textarea>
+          <input type="file" @change="handleImageUpload" accept="image/*" />
+          <img v-if="previewImage" :src="previewImage" width="120" />
+          <div class="form-buttons">
+            <button type="button" @click="addReview">등록</button>
+            <button type="button" @click="cancelForm">취소</button>
+          </div>
+        </form>
+      </div>
       <!-- 페이지네이션 버튼 -->
       <div class="st_pagination">
         <button @click="prevPage" :disabled="currentPage === 1">이전</button>
@@ -353,16 +355,14 @@ img {
 }
 
 .st_card:hover {
-  border: 2px solid $sub-color;
-  box-shadow: 2px 2px $sub-color;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .st_card .st_img-product {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70%;
+  height: 85%;
 }
 
 .st_card .st_img-product img {
@@ -380,18 +380,22 @@ img {
   display: flex;
   flex-wrap: wrap;
   text-align: left;
+  flex-direction: column;
+}
+.st_text {
+  display: flex;
+  align-items: baseline;
 }
 
-h5 {
-  margin-top: 10px;
-  line-height: 20px;
+h6 {
+  margin-top: 5px;
+  font-size: 13px;
 }
-
 .st_tag a {
   padding: 5px auto;
-  font-size: 12px;
+  font-size: 10px;
   color: black;
-  background-color: #dedfdf;
+
   border-radius: 20px;
   text-decoration: none;
 }
@@ -436,7 +440,7 @@ h5 {
   width: 100px;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
 }
 

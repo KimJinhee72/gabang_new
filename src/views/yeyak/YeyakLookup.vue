@@ -52,8 +52,11 @@
   width: 100%;
   max-width: 700px;
   padding: 20px;
-  background-color: #a3e4ff;
-  border-radius: 20px;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
+    border-radius: 20px;
+    padding: 30px auto;
+    margin: 30px auto;
 }
 
 input {

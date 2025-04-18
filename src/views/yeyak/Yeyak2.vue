@@ -210,7 +210,8 @@ $base-width: 350px;
 .st_top {
   width: 100%;
   padding: 20px;
-  background-color: #edfaff;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -220,7 +221,7 @@ $base-width: 350px;
 .st_section-title {
   font-weight: bold;
   font-size: 1.1rem;
-  margin: 15px auto 10px;
+  margin: 15px auto;
   text-align: center;
 }
 
@@ -233,7 +234,7 @@ label {
   height: 44px;
   padding: 10px;
   margin: 8px auto;
-  border: 1px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   box-sizing: border-box;
 }
@@ -266,7 +267,7 @@ label {
   max-width: 150px;
   height: 44px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
 }
 
@@ -282,7 +283,7 @@ label {
   width: 70px;
   text-align: center;
   height: 44px;
-  border: 1px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   padding: 8px;
 }
@@ -305,7 +306,7 @@ label {
   min-width: 60px;
   padding: 10px;
   background-color: #fff;
-  border: 2px solid #ccc;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -322,7 +323,7 @@ label {
   justify-content: space-between;
   padding: 15px;
   background-color: #fff;
-  border: 2px solid #ddd;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   margin: 10px 0;
 }
@@ -378,10 +379,10 @@ label {
   width: 100%;
   max-width: $base-width;
   background-color: #fff;
-  border: 2px solid #ddd;
+  border: 1px solid #b5b5b5;
   border-radius: 10px;
   padding: 15px;
-  margin-top: 15px;
+  margin: 15px auto ;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
